@@ -9,7 +9,7 @@ public class FieldService {
 
     public void logic(String name) {
         log.info("저장 name : {} -> nameStore : {}", name, nameStore);
-        this.nameStore = name;
+        nameStore = name;
         sleep(1000);
         log.info("조회 nameStore : {}", nameStore);
     }
