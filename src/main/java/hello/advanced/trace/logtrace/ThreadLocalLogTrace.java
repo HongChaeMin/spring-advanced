@@ -77,7 +77,8 @@ public class ThreadLocalLogTrace implements LogTrace {
         }
         return sb.toString();
     }
-
+  
+    // 실행 결과
     // [57eb2700] OrderController.request()
     // [57eb2700] |-->OrderService.request()
     // [57eb2700] | |-->OrderRepository.request()
@@ -91,5 +92,4 @@ public class ThreadLocalLogTrace implements LogTrace {
     // [8c0485d0] |<--OrderService.request() time = 1015ms
     // [8c0485d0] OrderController.request() time = 1015ms
     // [32af1861] OrderController.request()
-
 }
