@@ -77,4 +77,19 @@ public class ThreadLocalLogTrace implements LogTrace {
         }
         return sb.toString();
     }
+
+    // [57eb2700] OrderController.request()
+    // [57eb2700] |-->OrderService.request()
+    // [57eb2700] | |-->OrderRepository.request()
+    // [3093a481] | |<--OrderRepository.request() time = 1007ms
+    // [3093a481] |<--OrderService.request() time = 1007ms
+    // [3093a481] OrderController.request() time = 1007ms
+    // [675b9897] OrderController.request()
+    // [675b9897] |-->OrderService.request()
+    // [675b9897] | |-->OrderRepository.request()
+    // [8c0485d0] | |<--OrderRepository.request() time = 1015ms
+    // [8c0485d0] |<--OrderService.request() time = 1015ms
+    // [8c0485d0] OrderController.request() time = 1015ms
+    // [32af1861] OrderController.request()
+
 }
