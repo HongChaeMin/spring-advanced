@@ -1,5 +1,8 @@
-package hello.advanced.trace.strategy;
+package hello.advanced.trace.strategy.code;
 
+import hello.advanced.trace.strategy.code.strategy.ContextV1;
+import hello.advanced.trace.strategy.code.strategy.StrategyLogic1;
+import hello.advanced.trace.strategy.code.strategy.StrategyLogic2;
 import hello.advanced.trace.template.code.AbstractTemplate;
 import hello.advanced.trace.template.code.SubClassLogic1;
 import hello.advanced.trace.template.code.SubClassLogic2;
@@ -35,34 +38,16 @@ public class ContextV1Test {
         log.info("resultTime : " + resultTime);
     }
 
+    /**
+     * 전략 패턴 사용
+    **/
     @Test
-    void templateMethodV1() {
-        AbstractTemplate template1 = new SubClassLogic1();
-        template1.execute();
+    void strategyV1() {
+        ContextV1 context1 = new ContextV1(new StrategyLogic1());
+        context1.execute();
 
-        AbstractTemplate template2 = new SubClassLogic2();
-        template2.execute();
-    }
-
-    @Test
-    void templateMethodV2() {
-        AbstractTemplate template1 = new AbstractTemplate() {
-            @Override
-            protected void call() {
-                log.info("비즈니스 로직1 실행");
-            }
-        };
-        log.info("클래스 이름1 : {}", template1.getClass());
-        template1.execute();
-
-        AbstractTemplate template2 = new AbstractTemplate() {
-            @Override
-            protected void call() {
-                log.info("비즈니스 로직2 실행");
-            }
-        };
-        log.info("클래스 이름2 : {}", template2.getClass());
-        template2.execute();
+        ContextV1 context2 = new ContextV1(new StrategyLogic2());
+        context2.execute();
     }
 
 }
